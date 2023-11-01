@@ -79,8 +79,9 @@ class HomeController extends Controller
     function translateWaktu($param)
     {
         $translation = [
+            'before' => 'sebelumnya',
             'ago' => 'yang lalu',
-            'after' => 'yang lalu',
+            'after' => 'setelahnya',
             'from now' => 'dari sekarang',
             'years' => 'tahun',
             'year' => 'tahun',

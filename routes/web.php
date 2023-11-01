@@ -47,6 +47,7 @@ Route::middleware('auth')->group(function () {
 
     Route::group(['prefix' => 'petani', 'middleware' => 'cekrole:petani'], function () {
         Route::get('/profile', [UserController::class, 'profile_petani']);
+        Route::get('/kalkulator', [UserController::class, 'kalkulator_panen']);
         Route::get('/chat', [ChatController::class, 'petani']);
     });
 
@@ -62,10 +63,16 @@ Route::middleware('auth:admin')->group(function () {
         Route::get('dashboard', [AdminController::class, 'Dashboard']);
         Route::get('umum', [AdminController::class, 'ViewUserUmum']);
         Route::get('petani', [AdminController::class, 'ViewUserPetani']);
+        Route::put('/user/u', [AdminController::class, 'updatePassUser'])->name('update.user');
+        Route::delete('/user/{id}/d', [AdminController::class, 'deleteUser'])->name('delete.user');
     });
 });
-
+Route::get('user/{id}/data', [AdminController::class, 'getDataUser'])->name('user.data');
 Route::get('/user/{name}/image/', [UserController::class, 'view_image'])->name('view.image');
 Route::get('/news/{name}/image/', [NewsController::class, 'show_thumbnail'])->name('news.image');
 
 Route::get('/test', [UserController::class, 'test']);
+Route::match(['get', 'post'], '/botman', 'App\Http\Controllers\BotManController@handle');
+Route::get('/bot', function () {
+    return view('page.bot');
+});

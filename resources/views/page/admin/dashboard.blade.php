@@ -21,7 +21,7 @@
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                 Jumlah User</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">20</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $alluser }}</div>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-user fa-2x text-gray-300"></i>
@@ -39,7 +39,7 @@
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                 Jumlah Berita</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">100</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $allnews }}</div>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-newspaper fa-2x text-gray-300"></i>
@@ -55,10 +55,9 @@
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Active
-                                User
+                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Active User
                             </div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">20</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $userActive }}</div>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
@@ -127,6 +126,8 @@
     <script src="{{ asset('/js/demo/chart-pie-demo.js') }}"></script>
     <script>
         $(document).ready(function () {
+            let jumUser = @json($userDivide);
+            PieChart(jumUser);
             @if(session('success'))
                 success_message = @json(session('success'));
                 successAlert(success_message);

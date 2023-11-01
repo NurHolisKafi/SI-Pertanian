@@ -3,8 +3,8 @@
         <div class="container py-5">
             <div class="row">
                 <div class="col-lg-4 col-md-6">
-                    <h2 class="text-primary mb-4">SISTEM INFORMASI PERTANIAN</h2>
-                    <p class="text-primary text-justify">Sistem Informasi Pertanian (SIP) adalah suatu platform yang
+                    <h2 class="text-primary mb-4">SISTEM INFORMASI PERTANIAN DESA KALINGANYAR</h2>
+                    <p class="text-primary text-justify">Sistem Informasi Pertanian Desa Kalinganyar adalah suatu platform yang
                         digunakan untuk
                         mengumpulkan, mengelola, dan menyebarkan
                         informasi terkait pertanian.</p>
@@ -32,7 +32,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                    &copy; <a class="fw-medium" href="#">Sistem Informasi Pertanian 2023</a>, All Right Reserved.
+                    &copy; <a class="fw-medium" href="#">Sistem Informasi Pertanian Desa Kalinganyar 2023</a>, All Right Reserved.
                 </div>
                 <div class="col-md-6 text-center text-md-end">
                     <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
@@ -44,10 +44,6 @@
     </div>
     <!-- Copyright End -->
 
-    <!-- Back to Top -->
-    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i
-            class="bi bi-arrow-up"></i></a>
-
 
     <!-- JavaScript Libraries -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
@@ -56,6 +52,15 @@
     <script src="{{ asset('lib/easing/easing.min.js') }}"></script>
     <script src="{{ asset('lib/waypoints/waypoints.min.js') }}"></script>
     <script src="{{ asset('lib/owlcarousel/owl.carousel.min.js') }}"></script>
+    <script>
+        var botmanWidget = {
+            title: 'Helpdesk',
+            introMessage: 'Selamat Datang di Helpdesk , ketik mulai sebelum bertanya',
+            mainColor: '#409150',
+            bubbleAvatarUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpiE_JYmQt-t_EEwJKK5JUBQ50PnCfFMmccw&usqp=CAU',
+        };
+    </script>
+    <script src='{{ asset('js/widget.js') }}'></script> 
     <script src="{{ asset('js/main.js') }}"></script>
     @stack('additional-script')
 </body>

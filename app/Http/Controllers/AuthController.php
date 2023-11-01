@@ -20,6 +20,7 @@ class AuthController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
+            User::where('email', $credentials['email'])->update(['active' => true]);
             return redirect()->intended('/umum/profile')->with('success', 'Login Berhasil');
         }
 
@@ -40,6 +41,7 @@ class AuthController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
+            User::where('email', $credentials['email'])->update(['active' => true]);
             return redirect()->intended('/petani/profile')->with('success', 'Login Berhasil');
         }
 
@@ -69,12 +71,12 @@ class AuthController extends Controller
 
     function Logout(Request $request)
     {
+        if (auth()->user()) {
+            User::where('email', auth()->user()->email)->update(['active' => false]);
+        }
         Auth::logout();
-
         $request->session()->invalidate();
-
         $request->session()->regenerateToken();
-
         return redirect('/');
     }
 }

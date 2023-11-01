@@ -44,7 +44,7 @@
                         <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-fill"></i></span>
                     </div>
                     <input type="text" name="username" value="{{ old('username') }}" name="email" class="form-control shadow-none py-4 @error('email') is-invalid @enderror" aria-describedby="emailHelp"
-                        placeholder="Username" autocomplete="username">
+                        placeholder="Username" autocomplete="username" required>
                         @error('email')
                         <div class="invalid-feedback">
                             {{ $message }}
@@ -56,7 +56,7 @@
                         <span class="input-group-text" id="basic-addon1"><i class="bi bi-lock-fill"></i></span>
                     </div>
                     <input type="password" name="password" class="form-control shadow-none py-4" placeholder="Password"
-                        autocomplete="current-password">
+                        autocomplete="current-password" min="8" required>
                 </div>
                 <button type="submit" class="btn btn-primary w-100 p-2 mt-3">Submit</button>
             </form>

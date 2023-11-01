@@ -14,7 +14,7 @@
         <li class="nav-item dropdown no-arrow">
             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
-                <span class="mr-3 d-none d-lg-inline text-gray-600 small">John Doe</span> {{-- {{ auth()->user()->name }} --}} 
+                <span class="mr-3 d-none d-lg-inline text-gray-600 small">{{ auth('admin')->user()->username }}</span> {{-- {{ auth()->user()->name }} --}} 
                 <img class="img-profile rounded-circle" src="{{ route('view.image', ['name' => 'default_profile.jpg']) }}">
             </a>
             <!-- Dropdown - User Information -->

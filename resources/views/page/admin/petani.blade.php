@@ -34,32 +34,34 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td class="text-capitalize">John Doe</td>
-                            <td>johndoe@gmail.com</td>
-                            <td>2000-14-12</td>
-                            <td class="text-center">
-                                <div class="dropdown no-arrow">
-                                    <a class="dropdown-toggle" href="#" role="button"
-                                        id="dropdownMenuLink" data-toggle="dropdown"
-                                        aria-haspopup="true" aria-expanded="false">
-                                        <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                                    </a>
-                                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                                        aria-labelledby="dropdownMenuLink">
-                                        <div class="dropdown-header">Aksi</div>
-                                        <a class="dropdown-item" href="#" data-toggle="modal"
-                                            data-target="#viewModal">Lihat</a>
-                                        <a class="dropdown-item" href="#" data-toggle="modal"
-                                            data-target="#passModal">Ubah Password</a>
-                                        <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="#" data-toggle="modal"
-                                            data-target="#hapusModal">Hapus</a>
+                        @foreach ($data as $index => $item)
+                            <tr>
+                                <td>{{ $index+1 }}</td>
+                                <td class="text-capitalize"> {{ $item->name }} </td>
+                                <td>{{ $item->email }}</td>
+                                <td>{{ $item->created_at }}</td>
+                                <td class="text-center">
+                                    <div class="dropdown no-arrow">
+                                        <a class="dropdown-toggle" href="#" role="button"
+                                            id="dropdownMenuLink" data-toggle="dropdown"
+                                            aria-haspopup="true" aria-expanded="false">
+                                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                                            aria-labelledby="dropdownMenuLink">
+                                            <div class="dropdown-header">Aksi</div>
+                                            <a class="dropdown-item" href="#" data-toggle="modal"
+                                                data-target="#viewModal" data-path="{{ route('user.data',$item->id_user) }}">Lihat</a>
+                                            <a class="dropdown-item" href="#" data-toggle="modal"
+                                                data-target="#passModal" data-id="{{ $item->id_user }}">Ubah Password</a>
+                                            <div class="dropdown-divider"></div>
+                                            <a class="dropdown-item" href="#" data-toggle="modal"
+                                                data-target="#hapusModal" data-path="{{ route('delete.user',$item->id_user) }}">Hapus</a>
+                                        </div>
                                     </div>
-                                </div>
-                            </td>
-                        </tr>
+                                </td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
@@ -85,58 +87,6 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-4">
-                                <label class="text-gray-500">Nama</label>
-                            </div>
-                            <div class="col-7">
-                                <p>Agus setiawan</p>
-                            </div>
-                            <div class="col-4">
-                                <label class="text-gray-500">Email</label>
-                            </div>
-                            <div class="col-7">
-                                <p class="text-capitalize">www@gmail.com</p>
-                            </div>
-                            <div class="col-4">
-                                <label class="text-gray-500">No Hp</label>
-                            </div>
-                            <div class="col-7">
-                                <p class="text-capitalize">087850234440</p>
-                            </div>
-                            <div class="col-4">
-                                <label class="text-gray-500">Jenis Kelamin</label>
-                            </div>
-                            <div class="col-7">
-                                <p class="text-capitalize">laki - laki</p>
-                            </div>
-                            <div class="col-4">
-                                <label class="text-gray-500">Profesi</label>
-                            </div>
-                            <div class="col-7">
-                                <p class="text-capitalize">Petani Jagung</p>
-                            </div>
-                            <div class="col-4">
-                                <label class="text-gray-500">Organisasi Petani</label>
-                            </div>
-                            <div class="col-7">
-                                <p class="text-capitalize">Petani Keren</p>
-                            </div>
-                            <div class="col-4">
-                                <label class="text-gray-500">Kota</label>
-                            </div>
-                            <div class="col-7">
-                                <p class="text-capitalize">Surabaya</p>
-                            </div>
-                            <div class="col-4">
-                                <label class="text-gray-500">Alamat</label>
-                            </div>
-                            <div class="col-7">
-                                <p class="text-capitalize">Jl sudirman no.25, Sukolilo</p>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -152,19 +102,22 @@
                         <span aria-hidden="true">X</span>
                     </button>
                 </div>
+                <form action="{{ route('update.user') }}" method="post">
+                @csrf
+                @method('PUT')
                 <div class="modal-body">
-                    <form action="#" method="post">
-                        <div class="mb-3">
-                            <label>Password Baru</label>
-                            <input class="form-control shadow-none" type="password" min="8" required>
-                        </div>
-                    </form>
-
+                    <input type="hidden" name="id">
+                    <div class="mb-3">
+                        <label>Password Baru</label>
+                        <input class="form-control shadow-none" name="new_pass" type="password" min="8" required>
+                        <small>password minimal 8 karakter</small>
+                    </div>
                 </div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary shadow-none" type="button" data-dismiss="modal">Cancel</button>
+                    <button class="btn btn-light shadow-none" type="button" data-dismiss="modal">Cancel</button>
                     <button type="submit" class="btn btn-primary shadow-none">Save</button>
                 </div>
+                </form> 
             </div>
         </div>
     </div>
@@ -180,13 +133,18 @@
                         <span aria-hidden="true">X</span>
                     </button>
                 </div>
-                <div class="modal-body">
-                    <h6>Yakin Ingin Menghapus ?</h6>
-                </div>
-                <div class="modal-footer">
-                    <button class="btn btn-light shadow-none" type="button" data-dismiss="modal">Cancel</button>
-                    <a href="" class="btn btn-secondary shadow-none">Hapus</a>
-                </div>
+                <form action="" method="post">
+                    @csrf
+                    @method('DELETE')
+                    <div class="modal-body">
+                        <h5>Yakin Ingin Menghapus ?</h5>
+                        <small>Note : data yang dihapus tidak akan bisa dikembalikan</small>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-light shadow-none" type="button" data-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-secondary shadow-none">Hapus</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
@@ -200,6 +158,82 @@
     <script>
         $(document).ready(function () {
             $('#dataTable').DataTable();
+             $('#viewModal').on('show.bs.modal',function (e) {
+                let button = e.relatedTarget;
+                let path = button.getAttribute('data-path');
+                $('#data-user').remove();
+                $('#viewModal .modal-body').html('<p class="text-center">Tunggu Sebentar.....</p>')
+                // console.log(path);
+                $.ajax({
+                    url: path, // Ganti dengan URL yang sesuai
+                    type: 'GET',
+                    dataType: 'json',
+                    async: false,
+                    success: function(data) {
+                        $('#viewModal .modal-body').html(`
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-4">
+                                    <label class="text-gray-500">Nama</label>
+                                </div>
+                                <div class="col-7">
+                                    <p>${data.name}</p>
+                                </div>
+                                <div class="col-4">
+                                    <label class="text-gray-500">Email</label>
+                                </div>
+                                <div class="col-7">
+                                    <p>${data.email}</p>
+                                </div>
+                                <div class="col-4">
+                                    <label class="text-gray-500">No Hp</label>
+                                </div>
+                                <div class="col-7">
+                                    <p class="text-capitalize">${data.notelp}</p>
+                                </div>
+                                <div class="col-4">
+                                    <label class="text-gray-500">Jenis Kelamin</label>
+                                </div>
+                                <div class="col-7">
+                                    <p class="text-capitalize">${data.jenis_kelamin}</p>
+                                </div>
+                                    <div class="col-4">
+                                    <label class="text-gray-500">Profesi</label>
+                                </div>
+                                <div class="col-7">
+                                    <p class="text-capitalize">${data.profesi}</p>
+                                </div>
+                                <div class="col-4">
+                                    <label class="text-gray-500">Organisasi Petani</label>
+                                </div>
+                                <div class="col-7">
+                                    <p class="text-capitalize">${data.organisasi_petani}</p>
+                                </div>
+                                <div class="col-4">
+                                    <label class="text-gray-500">Alamat</label>
+                                </div>
+                                <div class="col-7">
+                                    <p class="text-capitalize">${data.alamat}</p>
+                                </div>
+                            </div>
+                        </div>`
+                        );
+                    },
+                });
+            })
+
+            $('#passModal').on('show.bs.modal',function(e) {
+                let button = e.relatedTarget;
+                let id = button.getAttribute('data-id');
+                $('#passModal input[name="id"]').val(id);
+            })
+
+            $('#hapusModal').on('show.bs.modal',function(e) {
+                let button = e.relatedTarget;
+                let path = button.getAttribute('data-path');
+                $('#hapusModal form').attr('action',path);
+            })
+
             @if(session('success'))
                 success_message = @json(session('success'));
                 successAlert(success_message);

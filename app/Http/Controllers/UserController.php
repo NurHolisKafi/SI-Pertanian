@@ -27,6 +27,11 @@ class UserController extends Controller
         return view('page.umum.profile');
     }
 
+    function kalkulator_panen()
+    {
+        return view('page.petani.calc');
+    }
+
     function store_register_umum(Request $request)
     {
         $data = $request->validate([

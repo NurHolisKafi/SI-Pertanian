@@ -19,10 +19,10 @@
                     <i class="fas fa-fw fa-user"></i>
                     <span>My Profile</span></a>
             </li>
-            <li class="nav-item @yield('news-active')">
-                <a class="nav-link" href="/petani/news">
-                    <i class="fas fa-fw fa-newspaper"></i>
-                    <span>Berita</span></a>
+            <li class="nav-item @yield('calc-active')">
+                <a class="nav-link" href="/petani/kalkulator">
+                    <i class="fas fa-fw fa-calculator"></i>
+                    <span>Kalkulator Panen</span></a>
             </li>
             <li class="nav-item @yield('chat-active')">
                 <a class="nav-link" href="/petani/chat">

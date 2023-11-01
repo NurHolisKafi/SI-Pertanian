@@ -25,7 +25,7 @@ class HomeController extends Controller
 
     function news(): View
     {
-        $news = News::select('id_berita', 'judul', 'thumbnail', 'tanggal_posting')->get();
+        $news = News::select('id_berita', 'judul', 'thumbnail', 'tanggal_posting')->orderBy('tanggal_posting', 'DESC')->paginate(8);
         foreach ($news as $key) {
             $selisih_waktu = $this->today->diffForHumans($key->tanggal_posting);
             $key['tanggal_posting'] = $this->translateWaktu($selisih_waktu);

@@ -19,7 +19,7 @@
     <!-- Page Header End -->
 
 
-    <!-- Products Start -->
+    <!-- News Start -->
     <div class="container-fluid product py-5">
         <div class="container py-5">
             <div class="section-title text-center mx-auto wow fadeInUp" data-wow-delay="0.1s">
@@ -27,26 +27,35 @@
                 <h1 class="display-6" style="font-size: xx-large;">Informasi Seputar Bidang Pertanian</h1>
             </div>
             <div class="row">
-                @foreach ($news as $item)
-                <div class="col-md-6 col-12">
-                    <div class="card mb-3" id="news-card" data-path="{{route('news.detail',['id' => $item->id_berita ])  }}">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-xl-2 col-4">
-                                    <img src="{{ route('news.image',['name'=> $item->thumbnail]) }}" class=" w-100" width="50" height="80">
-                                </div>
-                                <div class="col">
-                                    <div style="line-height: 12px;">
-                                        <p style="font-size: small;"><i class="bi bi-clock me-2"></i>{{ $item->tanggal_posting }} </p>
-                                        <h2 class="fs-5">{{ $item->judul }}</h2>
+                @if ($news->isNotEmpty())
+                    @foreach ($news as $item)
+                        <div class="col-md-6 col-12 wow fadeInUp">
+                            <div class="card mb-3" id="news-card" data-path="{{route('news.detail',['id' => $item->id_berita ])  }}">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-xl-2 col-4">
+                                            <img src="{{ route('news.image',['name'=> $item->thumbnail]) }}" class=" w-100" width="50" height="80">
+                                        </div>
+                                        <div class="col">
+                                            <div style="line-height: 12px;">
+                                                <p style="font-size: small;"><i class="bi bi-clock me-2"></i>{{ $item->tanggal_posting }} </p>
+                                                <h2 class="fs-5">{{ $item->judul }}</h2>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                @endforeach
+                    @endforeach      
+                @else
+                    <div class="col text-center wow fadeInUp">
+                        <p class="fs-5 text-primary">Berita masih belum ada</p>
+                    </div>      
+                @endif
             </div>
+        </div>
+        <div class="container d-flex justify-content-end">
+            {{ $news->links() }}
         </div>
     </div>
     <!--news End -->

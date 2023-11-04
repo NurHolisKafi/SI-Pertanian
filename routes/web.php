@@ -26,7 +26,8 @@ Route::get('/news/{id}/d', [HomeController::class, 'news_detail'])->name('news.d
 Route::get('/contact', [HomeController::class, 'contact']);
 Route::get('/logout', [AuthController::class, 'Logout']);
 
-Route::middleware('guest')->group(function () {
+
+Route::middleware(['guest', 'guest:admin'])->group(function () {
     Route::get('/login/u', [HomeController::class, 'login_umum'])->name('login.umum');
     Route::get('/login/p', [HomeController::class, 'login_petani'])->name('login.petani');
     Route::get('/admin/l', [AdminController::class, 'Login']);
@@ -60,7 +61,7 @@ Route::middleware('auth')->group(function () {
 Route::middleware('auth:admin')->group(function () {
     Route::group(['prefix' => 'admin'], function () {
         Route::resource('news', NewsController::class)->only(['index', 'store', 'update', 'destroy']);
-        Route::get('dashboard', [AdminController::class, 'Dashboard']);
+        Route::get('dashboard', [AdminController::class, 'Dashboard'])->name('admin.dashboard');
         Route::get('umum', [AdminController::class, 'ViewUserUmum']);
         Route::get('petani', [AdminController::class, 'ViewUserPetani']);
         Route::put('/user/u', [AdminController::class, 'updatePassUser'])->name('update.user');

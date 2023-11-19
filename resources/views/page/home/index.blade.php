@@ -103,27 +103,26 @@
                     <p class="text-center fs-5 mb-5">Untuk informasi lebih lanjut tentang sistem informasi pertanian
                         dapat
                         menghubungi kontak dibawah ini</p>
-                    <div class="row g-5">
+                </div>
+                <div class="col-lg-12">
+                    <div class="row">
                         <div class="col-md-4 text-center wow fadeInUp" data-wow-delay="0.3s">
                             <div class="btn-square mx-auto mb-3">
                                 <i class="fa fa-envelope fa-2x text-white"></i>
                             </div>
-                            <p class="mb-2">info@example.com</p>
-                            <p class="mb-0">support@example.com</p>
+                            <p class="mb-2">desakalinganyarkangean@gmail.com</p>
                         </div>
                         <div class="col-md-4 text-center wow fadeInUp" data-wow-delay="0.4s">
                             <div class="btn-square mx-auto mb-3">
                                 <i class="fa fa-phone fa-2x text-white"></i>
                             </div>
-                            <p class="mb-2">+012 345 67890</p>
-                            <p class="mb-0">+012 345 67890</p>
+                            <p class="mb-2">+6285930112197</p>
                         </div>
                         <div class="col-md-4 text-center wow fadeInUp" data-wow-delay="0.5s">
                             <div class="btn-square mx-auto mb-3">
                                 <i class="fa fa-map-marker-alt fa-2x text-white"></i>
                             </div>
-                            <p class="mb-2">123 Street</p>
-                            <p class="mb-0">New York, USA</p>
+                            <p class="mb-2">JL.Lorong Dalem-Kalianyar Arjasa Sumenep</p>
                         </div>
                     </div>
                 </div>

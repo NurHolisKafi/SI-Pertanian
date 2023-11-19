@@ -9,11 +9,11 @@
                         mengumpulkan, mengelola, dan menyebarkan
                         informasi terkait pertanian.</p>
                 </div>
-                <div class="col-lg-3 col-md-6 ms-auto">
+                <div class="col-lg-4 col-md-6 ms-auto">
                     <h4 class="text-primary mb-4">Contact Us</h4>
-                    <p class="mb-2"><i class="fa fa-map-marker-alt text-primary me-3"></i>123 Street, New York, USA</p>
-                    <p class="mb-2"><i class="fa fa-phone-alt text-primary me-3"></i>+012 345 67890</p>
-                    <p class="mb-2"><i class="fa fa-envelope text-primary me-3"></i>info@example.com</p>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt text-primary me-3"></i>JL.Lorong Dalem-Kalianyar Arjasa Sumenep</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt text-primary me-3"></i>+6285930112197</p>
+                    <p class="mb-2"><i class="fa fa-envelope text-primary me-3"></i>desakalinganyarkangean@gmail.com</p>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h4 class="text-primary mb-4">Quick Links</h4>

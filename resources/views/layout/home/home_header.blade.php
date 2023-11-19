@@ -3,13 +3,15 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Sistem Informasi Pertanian (SIP)</title>
+    <title>Sistem Informasi Pertanian Desa Kalinganyar</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="keywords">
-    <meta content="" name="description">
+    <meta content="Nur Holis Kafi" name="author">
+    <meta content="Kalinnganyar, Sumenep, Pertanian, Sistem Informasi" name="keywords">
+    <meta content="informasi seputar pertanian di desa kalinganyar" name="description">
+    
 
     <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
+    <link href="{{ asset('img/sumenep-logo.png') }}" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">

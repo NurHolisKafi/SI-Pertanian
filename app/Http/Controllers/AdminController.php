@@ -38,6 +38,8 @@ class AdminController extends Controller
         return view('page.admin.petani', compact('data'));
     }
 
+    //UPDATE
+
     function updatePassUser(Request $request)
     {
         $validate = $request->validate([

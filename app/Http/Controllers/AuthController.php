@@ -8,12 +8,11 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
-    function AuthLoginUmum(Request $request)
+    function AuthLogin(Request $request)
     {
         $credentials = $request->validate([
             'email' => ['required', 'email:rfc,dns'],
             'password' => ['required'],
-            'role' => ['required']
         ], [
             'email.email' => 'Email tidak valid'
         ]);
@@ -21,28 +20,7 @@ class AuthController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
             User::where('email', $credentials['email'])->update(['active' => true]);
-            return redirect()->intended('/umum/profile')->with('success', 'Login Berhasil');
-        }
-
-        return back()->withErrors([
-            'error' => 'Email atau Password Salah',
-        ])->onlyInput('email');
-    }
-
-    function AuthLoginPetani(Request $request)
-    {
-        $credentials = $request->validate([
-            'email' => ['required', 'email:rfc,dns'],
-            'password' => ['required'],
-            'role' => ['required']
-        ], [
-            'email.email' => 'Email tidak valid'
-        ]);
-
-        if (Auth::attempt($credentials)) {
-            $request->session()->regenerate();
-            User::where('email', $credentials['email'])->update(['active' => true]);
-            return redirect()->intended('/petani/profile')->with('success', 'Login Berhasil');
+            return redirect()->intended('/profile')->with('success', 'Login Berhasil');
         }
 
         return back()->withErrors([

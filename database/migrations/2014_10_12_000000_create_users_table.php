@@ -18,8 +18,8 @@ return new class extends Migration
             $table->enum('jenis_kelamin', ['laki - laki', 'perempuan']);
             $table->text('alamat');
             $table->string('password');
-            $table->string('profesi', 50)->nullable();
-            $table->string('organisasi_petani', 50)->nullable();
+            // $table->string('profesi', 50)->nullable();
+            // $table->string('organisasi_petani', 50)->nullable();
             $table->integer('role');
             $table->timestamps();
         });

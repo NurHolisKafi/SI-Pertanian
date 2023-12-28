@@ -138,6 +138,10 @@
     background-color: #e0e7de;
 }
 
+#card-link:hover {
+    cursor: pointer;
+}
+
 .news-body {
     display: -webkit-box;
     -webkit-line-clamp: 2; /* Batasan jumlah baris */

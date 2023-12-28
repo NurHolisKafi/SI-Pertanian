@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
-
+    <link href="{{ asset('img/sumenep-logo.png') }}" rel="icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -31,7 +31,7 @@
                 <!-- Registrasi Umum -->
                 <div id="form-regis-umum">
                     <h1 class=" mb-5 fw-bold">Register</h1>
-                    <form action="{{ route('store.umum') }}" method="POST" class="mb-3">
+                    <form action="{{ route('store') }}" method="POST" class="mb-3">
                         @csrf
                         <input type="hidden" name="role" value="1">
                         <div class="row">
@@ -89,8 +89,8 @@
                         </div>
                         <button type="submit" class="form-control btn btn-primary p-2 mt-3">Register</button>
                     </form>
-                    <p class="text-center mt-5 text-dark">Sudah Punya Akun ? <a href="/login/u">Login</a></p>
-                    <p class="text-center text-dark">Register Untuk Petani ? <a href="/register/p">Disini</a></p>
+                    <p class="text-center mt-5 text-dark">Sudah Punya Akun ? <a href="{{ route('login') }}">Login</a></p>
+                    {{-- <p class="text-center text-dark">Register Untuk Petani ? <a href="/register/p">Disini</a></p> --}}
                 </div>
             </div>
         </div>

@@ -6,9 +6,9 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
+    <meta name="description" content="Admin Sistem Informasi Pertanian">
+    <meta name="author" content="Nur Holis Kafi">
+    <link href="{{ asset('img/sumenep-logo.png') }}" rel="icon">
     <title>@yield('title')</title>
 
     <link href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">

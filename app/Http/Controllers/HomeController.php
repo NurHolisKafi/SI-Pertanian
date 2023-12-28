@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\News;
 use Carbon\Carbon;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Date;
 use Illuminate\View\View;
 
 class HomeController extends Controller
@@ -19,7 +17,7 @@ class HomeController extends Controller
 
     function index(): View
     {
-        $news = News::orderBy('tanggal_posting', 'desc')->limit(5)->get();
+        $news = News::orderBy('tanggal_posting', 'desc')->limit(6)->get();
         return view('page.home.index', ['news' => $news]);
     }
 
@@ -31,6 +29,12 @@ class HomeController extends Controller
             $key['tanggal_posting'] = $this->translateWaktu($selisih_waktu);
         }
         return view('page.home.news', ['news' => $news]);
+    }
+
+    function budidaya(): View
+    {
+        // $news = News::orderBy('tanggal_posting', 'desc')->limit(6)->get();
+        return view('page.home.budidaya');
     }
 
     function contact(): View
@@ -54,6 +58,32 @@ class HomeController extends Controller
             $key['tanggal_posting'] = $this->translateWaktu($selisih_waktu);
         }
         return view('page.home.news-detail', ['detail' => $news_detail, 'related_articel' => $related_articel]);
+    }
+
+    function budidaya_detail($id): View
+    {
+        // $news_detail = News::where('id_berita', $id)->first();
+        // $tanggal_posting = Carbon::parse($news_detail['tanggal_posting']);
+        // $news_detail['tanggal_posting'] = $tanggal_posting->locale('id')->translatedFormat('l, j F Y');
+        // $related_articel = News::whereNot('id_berita', $id)->limit(5)->get();
+        // foreach ($related_articel as $key) {
+        //     $selisih_waktu = $this->today->diffForHumans($key->tanggal_posting);
+        //     $key['tanggal_posting'] = $this->translateWaktu($selisih_waktu);
+        // }
+        return view('page.home.detail-budidaya');
+    }
+
+    function hpt_detail($id): View
+    {
+        // $news_detail = News::where('id_berita', $id)->first();
+        // $tanggal_posting = Carbon::parse($news_detail['tanggal_posting']);
+        // $news_detail['tanggal_posting'] = $tanggal_posting->locale('id')->translatedFormat('l, j F Y');
+        // $related_articel = News::whereNot('id_berita', $id)->limit(5)->get();
+        // foreach ($related_articel as $key) {
+        //     $selisih_waktu = $this->today->diffForHumans($key->tanggal_posting);
+        //     $key['tanggal_posting'] = $this->translateWaktu($selisih_waktu);
+        // }
+        return view('page.home.news-detail');
     }
 
     function login_umum(): View

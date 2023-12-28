@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-
+    <link href="{{ asset('img/sumenep-logo.png') }}" rel="icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -31,7 +31,7 @@
         <div class="container">
             <img src="{{ asset('img/user-logo.png') }}" alt="" width="40%">
             <h1 class="text-center mb-5">Login</h1>
-            <form method="POST" action="{{ route('auth.umum') }}" class="mb-3">
+            <form method="POST" action="{{ route('auth') }}" class="mb-3">
                 <input type="hidden" name="role" value="1">
                 @csrf
                 @if ($errors->has('error'))

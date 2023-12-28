@@ -19,16 +19,11 @@
                     <i class="fas fa-fw fa-user"></i>
                     <span>My Profile</span></a>
             </li>
-            <li class="nav-item @yield('calc-active')">
-                <a class="nav-link" href="/petani/kalkulator">
-                    <i class="fas fa-fw fa-calculator"></i>
-                    <span>Kalkulator Panen</span></a>
-            </li>
-            <li class="nav-item @yield('chat-active')">
+            {{-- <li class="nav-item @yield('chat-active')">
                 <a class="nav-link" href="/petani/chat">
                     <i class="fas fa-fw fa-comment"></i>
                     <span>Chat</span></a>
-            </li>
+            </li> --}}
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">

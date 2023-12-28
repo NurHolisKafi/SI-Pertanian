@@ -48,7 +48,7 @@
     <!-- Navbar Start -->
     <div class="container-fluid bg-white sticky-top">
         <div class="container">
-            <nav class="navbar navbar-expand-lg bg-white navbar-light py-2 py-lg-0">
+            <nav class="navbar navbar-expand-lg bg-white navbar-light py-2 py-lg-0 shadow-1">
                 <a href="index.html" class="navbar-brand">
                     <img class="img-fluid" src="{{ asset('img/logo2.png') }}" alt=" Logo">
                 </a>
@@ -60,14 +60,21 @@
                     <div class="navbar-nav ms-auto">
                         <a href="/" class="nav-item nav-link @yield('home-active')">Home</a>
                         <a href="/about" class="nav-item nav-link @yield('about-active')">About</a>
-                        <a href="/news" class="nav-item nav-link @yield('news-active')">News</a>
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link" data-bs-toggle="dropdown">Information</a>
+                            <div class="dropdown-menu bg-light rounded-0 m-0">
+                                <a href="/news" class="dropdown-item">Berita</a>
+                                <a href="/budidaya" class="dropdown-item">Budidaya Tanaman</a>
+                                <a href="/hpt" class="dropdown-item">Hama dan Penyakit</a>
+                            </div>
+                        </div>
                         <a href="/contact" class="nav-item nav-link @yield('contact-active')">Contact</a>
                         @if (Auth::check())
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle pt-3" data-bs-toggle="dropdown"><img
                                     src="{{ route('view.image', ['name' => auth()->user()->image]) }}" style="margin-right: 0.5rem" class="img-thumbnail rounded-circle" alt="" width="45">{{ auth()->user()->name }}</a>
                             <div class="dropdown-menu bg-light rounded-0 m-0">
-                                <a href="{{ auth()->user()->role == 1 ? '/umum/profile' : '/petani/profile'}}" class="dropdown-item">My Profile</a>
+                                <a href="{{ auth()->user()->role == 1 ? '/profile' : '/petani/profile'}}" class="dropdown-item">My Profile</a>
                                 <a href="/logout" class="dropdown-item">Logout</a>
                             </div>
                         </div>
@@ -81,21 +88,8 @@
                             </div>
                         </div>
                         @else
-                        <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Login</a>
-                            <div class="dropdown-menu bg-light rounded-0 m-0">
-                                <a href="/login/u" class="dropdown-item">Umum</a>
-                                <a href="/login/p" class="dropdown-item">Petani</a>
-                            </div>
-                        </div>
-                        <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Register</a>
-                            <div class="dropdown-menu bg-light rounded-0 m-0">
-                                <a href="/register" class="dropdown-item">Umum</a>
-                                <a href="/register/p" class="dropdown-item">Petani</a>
-                            </div>
-                        </div>
-
+                        <a href="/login" class="nav-item nav-link">Login</a>
+                        <a href="/register" class="nav-item nav-link">Register</a>
                         @endif
                     </div>
                 </div>

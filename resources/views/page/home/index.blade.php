@@ -85,7 +85,7 @@
                 </div>
             @else
                 <p class="fs-6 text-primary text-center wow fadeInUp">Berita Belum Ditemukan</p>
-            @endif       
+            @endif 
         </div>
     </div>
     <!-- News End -->
@@ -131,5 +131,6 @@
     </div>
     <!-- Contact Start -->
 @endsection
+
 
     

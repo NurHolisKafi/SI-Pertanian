@@ -12,7 +12,13 @@ class HasilPerhitungan extends Model
     protected $primaryKey = 'id_perhitungan';
     protected $fillable = [
         'id_tanaman',
-        'luas',
+        'id_luas',
+        'id_user',
+        'modal'
     ];
-    public $timestamps = false;
+
+    function LuasTanah()
+    {
+        return $this->belongsTo(LuasTanah::class, 'id_luas');
+    }
 }

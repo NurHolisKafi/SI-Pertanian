@@ -3,7 +3,7 @@
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex flex-column my-1 my-sm-5 align-items-center justify-content-center"
-                href="index.html">
+                href="/profile">
                 <img src="../img/logo-sip.png" class="img-fluid rounded-sm" width="80%">
                 <div class="sidebar-brand-text mx-3 text-uppercase mb-4" style="font-size: 0.8rem;">sistem informasi
                     pertanian
@@ -15,15 +15,20 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item @yield('profile-active')">
-                <a class="nav-link" href="/umum/profile">
+                <a class="nav-link" href="/profile">
                     <i class="fas fa-fw fa-user"></i>
                     <span>My Profile</span></a>
             </li>
-            <li class="nav-item @yield('chat-active')">
+            <li class="nav-item @yield('calc-active')">
+                <a class="nav-link" href="/kalkulator">
+                    <i class="fas fa-fw fa-calculator"></i>
+                    <span>Kalkulator Tanam</span></a>
+            </li>
+            {{-- <li class="nav-item @yield('chat-active')">
                 <a class="nav-link" href="/umum/chat">
                     <i class="fas fa-fw fa-comment"></i>
                     <span>Chat</span></a>
-            </li>
+            </li> --}}
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">

@@ -83,7 +83,7 @@
                             <a href="#" class="nav-link dropdown-toggle pt-3" data-bs-toggle="dropdown"><img
                                     src="{{ route('view.image', ['name' => 'default_profile.jpg']) }}" style="margin-right: 0.5rem" class="img-thumbnail rounded-circle" alt="" width="45">{{ auth('admin')->user()->username }}</a>
                             <div class="dropdown-menu bg-light rounded-0 m-0">
-                                <a href="{{ route('admin.dashboard') }}" class="dropdown-item">Settings</a>
+                                <a href="{{ route('admin.dashboard') }}" class="dropdown-item">Manajemens</a>
                                 <a href="/logout" class="dropdown-item">Logout</a>
                             </div>
                         </div>

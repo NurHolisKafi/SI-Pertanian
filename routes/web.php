@@ -3,11 +3,13 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BahanTanamController;
+use App\Http\Controllers\BudidayaController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KebutuhanTanamController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\TanamanController;
 use App\Http\Controllers\UserController;
+use App\Models\Tanaman;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,10 +27,10 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about', [HomeController::class, 'about']);
 Route::get('/news', [HomeController::class, 'news']);
 Route::get('/budidaya', [HomeController::class, 'budidaya']);
-Route::get('/hpt', [HomeController::class, 'hpt']);
+// Route::get('/hpt', [HomeController::class, 'hpt']);
 Route::get('/news/{id}/d', [HomeController::class, 'news_detail'])->name('news.detail');
 Route::get('/budidaya/{id}/d', [HomeController::class, 'budidaya_detail'])->name('budidaya.detail');
-Route::get('/hpt/{id}/d', [HomeController::class, 'hpt_detail'])->name('hpt.detail');
+// Route::get('/hpt/{id}/d', [HomeController::class, 'hpt_detail'])->name('hpt.detail');
 Route::get('/contact', [HomeController::class, 'contact']);
 Route::get('/logout', [AuthController::class, 'Logout']);
 
@@ -73,6 +75,7 @@ Route::middleware('auth:admin')->group(function () {
         Route::resource('tanaman', TanamanController::class)->only(['index', 'store', 'update', 'destroy']);
         Route::resource('kebutuhantanam', KebutuhanTanamController::class)->except('show');
         Route::resource('bahan', BahanTanamController::class);
+        Route::resource('budidaya', BudidayaController::class);
         Route::get('dashboard', [AdminController::class, 'Dashboard'])->name('admin.dashboard');
         Route::get('umum', [AdminController::class, 'ViewUserUmum']);
         Route::get('petani', [AdminController::class, 'ViewUserPetani']);
@@ -83,11 +86,12 @@ Route::middleware('auth:admin')->group(function () {
 Route::get('user/{id}/data', [AdminController::class, 'getDataUser'])->name('user.data');
 Route::get('/user/{name}/image/', [UserController::class, 'view_image'])->name('view.image');
 Route::get('/news/{name}/image/', [NewsController::class, 'show_thumbnail'])->name('news.image');
+Route::get('/tanaman/{name}/image/', [BudidayaController::class, 'show_thumbnail'])->name('tanaman.image');
 Route::get('/lahan/min/{name}', [UserController::class, 'minLuasLahan']);
 Route::get('tanaman/kebutuhan/{id}', [KebutuhanTanamController::class, 'getDataKebutuhan']);
 
 
-Route::get('/test', [UserController::class, 'test']);
+// Route::get('/test/{users}/{tanaman}', [UserController::class, 'test']);
 Route::match(['get', 'post'], '/botman', 'App\Http\Controllers\BotManController@handle');
 Route::get('/bot', function () {
     return view('page.bot');

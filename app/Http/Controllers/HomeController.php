@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Budidaya;
 use App\Models\News;
 use Carbon\Carbon;
 use Illuminate\View\View;
@@ -33,8 +34,9 @@ class HomeController extends Controller
 
     function budidaya(): View
     {
-        // $news = News::orderBy('tanggal_posting', 'desc')->limit(6)->get();
-        return view('page.home.budidaya');
+        $budidaya = Budidaya::join('tanaman', 'tanaman.id_tanaman', 'budidaya.id_tanaman')
+            ->select('id', 'tanaman.nama', 'thumbnail')->paginate(20);
+        return view('page.home.budidaya', compact('budidaya'));
     }
 
     function contact(): View
@@ -62,27 +64,12 @@ class HomeController extends Controller
 
     function budidaya_detail($id): View
     {
-        // $news_detail = News::where('id_berita', $id)->first();
-        // $tanggal_posting = Carbon::parse($news_detail['tanggal_posting']);
-        // $news_detail['tanggal_posting'] = $tanggal_posting->locale('id')->translatedFormat('l, j F Y');
-        // $related_articel = News::whereNot('id_berita', $id)->limit(5)->get();
-        // foreach ($related_articel as $key) {
-        //     $selisih_waktu = $this->today->diffForHumans($key->tanggal_posting);
-        //     $key['tanggal_posting'] = $this->translateWaktu($selisih_waktu);
-        // }
-        return view('page.home.detail-budidaya');
+        $data = Budidaya::with('tanaman')->find($id);
+        return view('page.home.detail-budidaya', compact('data'));
     }
 
     function hpt_detail($id): View
     {
-        // $news_detail = News::where('id_berita', $id)->first();
-        // $tanggal_posting = Carbon::parse($news_detail['tanggal_posting']);
-        // $news_detail['tanggal_posting'] = $tanggal_posting->locale('id')->translatedFormat('l, j F Y');
-        // $related_articel = News::whereNot('id_berita', $id)->limit(5)->get();
-        // foreach ($related_articel as $key) {
-        //     $selisih_waktu = $this->today->diffForHumans($key->tanggal_posting);
-        //     $key['tanggal_posting'] = $this->translateWaktu($selisih_waktu);
-        // }
         return view('page.home.news-detail');
     }
 
@@ -111,7 +98,7 @@ class HomeController extends Controller
         $translation = [
             'before' => 'sebelumnya',
             'ago' => 'yang lalu',
-            'after' => 'setelahnya',
+            'after' => 'yang lalu',
             'from now' => 'dari sekarang',
             'years' => 'tahun',
             'year' => 'tahun',

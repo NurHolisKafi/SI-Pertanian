@@ -8,7 +8,7 @@
 
 <div class="container-fluid">
     <!-- Page Heading -->
-    <h1 class="h3 text-gray-800 mb-4">Dashboard</h1>
+    <h1 class="h3 text-gray-600 mb-4">Dashboard</h1>
 
     <!-- Content Row -->
     <div class="row ">

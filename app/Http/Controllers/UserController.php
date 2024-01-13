@@ -4,9 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\DetailKebutuhanTanam;
 use App\Models\HasilPerhitungan;
-use App\Models\Kebutuhan;
 use App\Models\LuasTanah;
-use App\Models\News;
 use App\Models\Tanaman;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -293,18 +291,11 @@ class UserController extends Controller
         return view('page.umum.hasil-perhitungan', compact('result', 'hargaTotal', 'sisaModal'));
     }
 
-    function test()
-    {
-        $tanaman = Tanaman::find(2);
-        $kebutuhan = [
-            1 => 5,
-            2 => 10
-        ];
-
-        // foreach ($kebutuhan as $idKebutuhan => $jumlah) {
-        //     $tanaman->kebutuhan()->attach($idKebutuhan, ['id_luas' => 1, 'jumlah' => $jumlah]);
-        // }
-
-        dd('berhasil');
-    }
+    // function test(User $users, Tanaman $tanaman)
+    // {
+    //     return response()->json([
+    //         'user' => $users,
+    //         'tanaman' => $tanaman
+    //     ]);
+    // }
 }

@@ -15,8 +15,13 @@ class Tanaman extends Model
     ];
     public $timestamps = false;
 
-    function kebutuhan()
+    public function kebutuhan()
     {
         return $this->belongsToMany(Kebutuhan::class, 'detail_kebutuhan_tanam', 'id_tanaman', 'id_kebutuhan')->withPivot('jumlah');
+    }
+
+    public function budidaya()
+    {
+        return $this->hasOne(Budidaya::class, 'id_tanaman');
     }
 }

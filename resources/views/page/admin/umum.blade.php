@@ -17,7 +17,7 @@
 <!-- Begin Page Content -->
 <div class="container-fluid">
 
-    <h1 class="h3 text-gray-800 mb-5">Data User Umum</h1>
+    <h1 class="h3 text-gray-600 mb-5">Data Users</h1>
     <!-- Content Row -->
     <div class="card border-left-primary text-dark shadow h-100 p-4">
         <div class="card-body text-dark">

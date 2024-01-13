@@ -55,6 +55,11 @@ return [
             'root' => storage_path('app/public/news'),
             'throw' => false,
         ],
+        'budidaya' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/tanaman'),
+            'throw' => false,
+        ],
 
         's3' => [
             'driver' => 's3',

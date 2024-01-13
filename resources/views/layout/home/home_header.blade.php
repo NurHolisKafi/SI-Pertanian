@@ -49,10 +49,10 @@
     <div class="container-fluid bg-white sticky-top">
         <div class="container">
             <nav class="navbar navbar-expand-lg bg-white navbar-light py-2 py-lg-0 shadow-1">
-                <a href="index.html" class="navbar-brand">
+                <a href="/" class="navbar-brand">
                     <img class="img-fluid" src="{{ asset('img/logo2.png') }}" alt=" Logo">
                 </a>
-                <button type="button" class="navbar-toggler ms-auto me-0" data-bs-toggle="collapse"
+                <button type="button" class="navbar-toggler ms-auto me-0 shadow-none" data-bs-toggle="collapse"
                     data-bs-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -65,7 +65,7 @@
                             <div class="dropdown-menu bg-light rounded-0 m-0">
                                 <a href="/news" class="dropdown-item">Berita</a>
                                 <a href="/budidaya" class="dropdown-item">Budidaya Tanaman</a>
-                                <a href="/hpt" class="dropdown-item">Hama dan Penyakit</a>
+                                {{-- <a href="/hpt" class="dropdown-item">Hama dan Penyakit</a> --}}
                             </div>
                         </div>
                         <a href="/contact" class="nav-item nav-link @yield('contact-active')">Contact</a>

@@ -43,7 +43,7 @@
                     <i class="fas fa-fw fa-newspaper"></i>
                     <span>Berita</span></a>
             </li>
-            <li class="nav-item @yield('user-active')">
+            <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseData"
                     aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fas fa-fw fa-server"></i>

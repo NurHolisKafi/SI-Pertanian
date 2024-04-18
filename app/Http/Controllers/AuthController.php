@@ -33,8 +33,6 @@ class AuthController extends Controller
         $credentials = $request->validate([
             'username' => ['required'],
             'password' => ['required'],
-        ], [
-            'email.email' => 'Email tidak valid'
         ]);
 
         if (Auth::guard('admin')->attempt($credentials)) {
@@ -43,8 +41,8 @@ class AuthController extends Controller
         }
 
         return back()->withErrors([
-            'error' => 'Email atau Password Salah',
-        ])->onlyInput('email');
+            'error' => 'Username atau Password Salah',
+        ])->onlyInput('username');
     }
 
     function Logout(Request $request)

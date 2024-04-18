@@ -43,13 +43,8 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-fill"></i></span>
                     </div>
-                    <input type="text" name="username" value="{{ old('username') }}" name="email" class="form-control shadow-none py-4 @error('email') is-invalid @enderror" aria-describedby="emailHelp"
+                    <input type="text" name="username" value="{{ old('username') }}" class="form-control shadow-none py-4" aria-describedby="emailHelp"
                         placeholder="Username" autocomplete="username" required>
-                        @error('email')
-                        <div class="invalid-feedback">
-                            {{ $message }}
-                        </div>
-                        @enderror
                 </div>
                 <div class="mb-3 input-group">
                     <div class="input-group-prepend">
